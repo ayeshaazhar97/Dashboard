@@ -1,0 +1,289 @@
+import ipywidgets as widgets
+from bokeh.io import output_file, show
+from bokeh.models.widgets import CheckboxGroup
+from IPython.display import clear_output
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.ticker import PercentFormatter
+from chart_studio.plotly import iplot
+import plotly.graph_objects as go
+from IPython.display import display
+
+import dash
+import dash_core_components as dcc
+import dash_html_components as html
+import plotly.graph_objs as go
+import pandas as pd
+
+import chart_studio.plotly as py
+from chart_studio.plotly import iplot
+from plotly.graph_objs import *
+
+df1 = pd.read_excel("C:/Users/Hassaan's PC/Downloads/test.xlsx")
+df2=df1[['Description','USD final']]
+df=df2.groupby(['Description'])['USD final'].sum().reset_index()
+df=df.replace(np.nan, 0)
+df = df.sort_values(by='USD final',ascending=False).reset_index()
+df=df[(df['USD final']>0)] 
+df=df.head(10)
+df["cumpercentage"] = df["USD final"].cumsum()/df["USD final"].sum()*100
+trace1 = dict(type='bar',
+x=df["Description"],
+y=df['USD final'],
+marker=dict(
+                color='#2ECC71'
+            ),
+name='Sales in USD',
+opacity=0.8)
+
+trace2 = dict(type='scatter',
+x=df["Description"],
+y=df['cumpercentage'],
+marker=dict(
+color='#29B6F6'
+),
+line=dict(color= '#29B6F6', width= 1.5),
+name='Cumulative % of Sales',
+xaxis='x1', 
+yaxis='y2' 
+)
+data = [trace1, trace2]
+layout = go.Layout(
+title='Pareto Analysis of Sales',
+legend= dict(orientation="h"),
+yaxis=dict(
+#range=[0,100000000000000000],
+title='Number of Kills',
+titlefont=dict(
+                    color="#2ECC71"
+                )
+),
+yaxis2=dict(
+title='Cumulative % of Sales',
+titlefont=dict(
+color='#29B6F6'
+),
+#range=[0,105],
+overlaying='y',
+anchor='x',
+side='right'
+)
+ )
+            
+fig1 = go.Figure(data=data, layout=layout)
+#plot_url = py.plot(fig1)
+#display(fig1)
+
+df2=df1[['Description','USD final']]
+df3=df2.groupby(['Description'])['USD final'].sum().reset_index()
+df3=df3.replace(np.nan, 0)
+df3 = df3.sort_values(by='USD final',ascending=False).reset_index()
+df3=df3[(df3['USD final']>0)] 
+df3=df3.head(20)
+df3["cumpercentage"] = df3["USD final"].cumsum()/df3["USD final"].sum()*100
+trace1 = dict(type='bar',
+x=df3["Description"],
+y=df3['USD final'],
+marker=dict(
+                color='#2ECC71'
+            ),
+name='Sales in USD',
+opacity=0.8)
+
+trace2 = dict(type='scatter',
+x=df3["Description"],
+y=df3['cumpercentage'],
+marker=dict(
+color='#29B6F6'
+),
+line=dict(color= '#29B6F6', width= 1.5),
+name='Cumulative % of Sales',
+xaxis='x1', 
+yaxis='y2' 
+)
+data3 = [trace1, trace2]
+layout = go.Layout(
+title='Pareto Analysis of Sales',
+legend= dict(orientation="h"),
+yaxis=dict(
+#range=[0,100000000000000000],
+title='Number of Kills',
+titlefont=dict(
+                    color="#2ECC71"
+                )
+),
+yaxis2=dict(
+title='Cumulative % of Sales',
+titlefont=dict(
+color='#29B6F6'
+),
+#range=[0,105],
+overlaying='y',
+anchor='x',
+side='right'
+)
+ )
+            
+fig3 = go.Figure(data=data3, layout=layout)
+#plot_url = py.plot(fig1)
+#display(fig3)
+
+df2=df1[['Description','USD final']]
+df4=df2.groupby(['Description'])['USD final'].sum().reset_index()
+df4=df4.replace(np.nan, 0)
+df4 = df4.sort_values(by='USD final',ascending=False).reset_index()
+df4=df4[(df4['USD final']>0)] 
+df4=df4.head(30)
+df4["cumpercentage"] = df4["USD final"].cumsum()/df4["USD final"].sum()*100
+trace1 = dict(type='bar',
+x=df4["Description"],
+y=df4['USD final'],
+marker=dict(
+                color='#2ECC71'
+            ),
+name='Sales in USD',
+opacity=0.8)
+
+trace2 = dict(type='scatter',
+x=df4["Description"],
+y=df4['cumpercentage'],
+marker=dict(
+color='#29B6F6'
+),
+line=dict(color= '#29B6F6', width= 1.5),
+name='Cumulative % of Sales',
+xaxis='x1', 
+yaxis='y2' 
+)
+data4 = [trace1, trace2]
+layout = go.Layout(
+title='Pareto Analysis of Sales',
+legend= dict(orientation="h"),
+yaxis=dict(
+#range=[0,100000000000000000],
+title='Number of Kills',
+titlefont=dict(
+                    color="#2ECC71"
+                )
+),
+yaxis2=dict(
+title='Cumulative % of Sales',
+titlefont=dict(
+color='#29B6F6'
+),
+#range=[0,105],
+overlaying='y',
+anchor='x',
+side='right'
+)
+ )
+            
+fig4 = go.Figure(data=data4, layout=layout)
+#plot_url = py.plot(fig1)
+#display(fig4)
+
+df2=df1[['Description','USD final']]
+df5=df2.groupby(['Description'])['USD final'].sum().reset_index()
+df5=df5.replace(np.nan, 0)
+df5 = df5.sort_values(by='USD final',ascending=False).reset_index()
+df5=df5[(df5['USD final']>0)] 
+
+df5["cumpercentage"] = df5["USD final"].cumsum()/df5["USD final"].sum()*100
+trace1 = dict(type='bar',
+x=df5["Description"],
+y=df5['USD final'],
+marker=dict(
+                color='#2ECC71'
+            ),
+name='Sales in USD',
+opacity=0.8)
+
+trace2 = dict(type='scatter',
+x=df5["Description"],
+y=df5['cumpercentage'],
+marker=dict(
+color='#29B6F6'
+),
+line=dict(color= '#29B6F6', width= 1.5),
+name='Cumulative % of Sales',
+xaxis='x1', 
+yaxis='y2' 
+)
+data5 = [trace1, trace2]
+layout = go.Layout(
+title='Pareto Analysis of Sales',
+legend= dict(orientation="h"),
+yaxis=dict(
+#range=[0,100000000000000000],
+title='Number of Kills',
+titlefont=dict(
+                    color="#2ECC71"
+                )
+),
+yaxis2=dict(
+title='Cumulative % of Sales',
+titlefont=dict(
+color='#29B6F6'
+),
+#range=[0,105],
+overlaying='y',
+anchor='x',
+side='right'
+)
+ )
+            
+fig5 = go.Figure(data=data5, layout=layout)
+#plot_url = py.plot(fig1)
+#display(fig5)
+
+app = dash.Dash(__name__)
+
+app.layout = html.Div([
+    html.Div([
+        html.H2('Pareto Analysis of Sales')
+    ], className="banner"),
+    dcc.Dropdown(
+        id='demo-dropdown',
+        options=[
+            {'label': 'TOP 10', 'value': '10'},
+            {'label': 'TOP 20', 'value': '20'},
+            {'label': 'TOP 30', 'value': '30'},
+            {'label': 'ALL', 'value': '40'}
+        ],
+        value='NULL'
+    ),
+
+    html.Div([
+
+        html.Div([
+
+            html.Div(
+                dcc.Graph(id="graph")
+            ),
+
+        ], className="six columns"),
+
+
+    ], className="row")
+
+])
+
+@app.callback(
+    dash.dependencies.Output('graph', 'figure'),
+    [dash.dependencies.Input('demo-dropdown', 'value')])
+
+def update_figure(value):
+    if value=='10':
+        figure=fig1
+    elif value=='20':
+        figure=fig3
+    elif value=='30':
+        figure=fig4
+    else:
+        figure=fig5 
+    return figure
+
+if __name__ == '__main__':
+    app.run_server(debug=False)
