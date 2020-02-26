@@ -21,7 +21,7 @@ import chart_studio.plotly as py
 from chart_studio.plotly import iplot
 from plotly.graph_objs import *
 
-df1 = pd.read_excel("C:/Users/Hassaan's PC/Downloads/test.xlsx")
+df1 = pd.read_excel("C:/Users/Ayesha/Desktop/Untitled Folder/test.xlsx")
 df2=df1[['Description','USD final']]
 df=df2.groupby(['Description'])['USD final'].sum().reset_index()
 df=df.replace(np.nan, 0)
